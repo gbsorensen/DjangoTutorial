@@ -34,6 +34,10 @@ class PersonUpdateView(UpdateView):
     template_name = "myapp/person_update.html"
     success_url = "/"
 
+class PersonDeleteView(DeleteView):
+    model = Person
+    template_name = "myapp/person_delete.html"
+    success_url = "/"
     
 """
     'CreateView' - A view that displays a form for creating an object, redisplaying the form with validation errors (if there are any) and saving the object.
