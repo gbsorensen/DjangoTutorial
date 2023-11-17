@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.utils import timezone
 from .forms import PersonForm
 from .models import Person
@@ -27,6 +27,13 @@ class PersonCreateView(CreateView):
     form_class = PersonForm
     template_name = "myapp/person_create.html"
     success_url = "/"
+    
+class PersonUpdateView(UpdateView):
+    model = Person
+    form_class = PersonForm
+    template_name = "myapp/person_update.html"
+    success_url = "/"
+
     
 """
     'CreateView' - A view that displays a form for creating an object, redisplaying the form with validation errors (if there are any) and saving the object.
